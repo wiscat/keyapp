@@ -1,0 +1,25 @@
+{
+  "extends": [
+    "airbnb",
+    "plugin:flowtype/recommended"
+  ],
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "prefer-template": [0],
+    "react/jsx-filename-extension": 0,
+    "react/sort-comp": [
+      2,
+      {
+        "order": [
+          "type-annotations",
+          "static-methods",
+          "lifecycle",
+          "everything-else",
+          "render"
+        ]
+      }
+    ]
+  }
+}

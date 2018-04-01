@@ -1,0 +1,33 @@
+.string {
+  display: table;
+  border-collapse: collapse;
+}
+
+.string__letter {
+  display: table-cell;
+  border: black solid 1px;
+  padding: 3px;
+}
+
+.string__letter:first-child {
+  color: red;
+  background: #ccc;
+}
+
+.training {
+  border: black solid 1px;
+  padding: 20px;
+}
+
+.training__string {
+  margin: 20px 0;
+}
+
+.results {
+  border: black solid 1px;
+  padding: 20px;
+}
+
+.results__button {
+  margin-top: 20px;
+}
