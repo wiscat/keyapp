@@ -72,12 +72,3 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 export default connect(state => ({
   string: stringSelector(state),
 }), mapDispatchToProps)(Training);
-
-// export default connect(state => ({
-//   string: stringSelector(state),
-// }), {
-//   onMistake: mistake,
-//   onStop: stop,
-//   onUpdateTime: updateTime,
-//   onUpdateString: updateString,
-// })(Training);
