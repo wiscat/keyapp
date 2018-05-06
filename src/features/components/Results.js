@@ -3,6 +3,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import Card, { CardActions, CardContent } from 'material-ui/Card';
 import Info from './Info';
 import Button from '../ui/Button';
 import { start } from '../redux/actions';
@@ -20,10 +21,14 @@ class Results extends React.PureComponent<ResultsProps> {
 
   render() {
     return (
-      <div className="results">
-        <Info />
-        <Button cls="results__button" title="Заново" onClick={this.onClickRestart} />
-      </div>
+      <Card className="results">
+        <CardContent>
+          <Info />
+        </CardContent>
+        <CardActions>
+          <Button title="Заново" onClick={this.onClickRestart} />
+        </CardActions>
+      </Card>
     );
   }
 }

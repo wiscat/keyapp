@@ -1,23 +1,23 @@
 /* @flow */
 
 import React from 'react';
+import Button from 'material-ui/Button';
 
 type ButtonProps = {
-  cls?: string,
   title: string,
   onClick: () => void,
 };
 
-class Button extends React.PureComponent<ButtonProps> {
+class AppButton extends React.PureComponent<ButtonProps> {
   render() {
-    const { title, onClick, cls } = this.props;
+    const { title, onClick } = this.props;
 
     return (
-      <button className={`button ${cls || ''}`} onClick={onClick}>
+      <Button variant="raised" color="primary" onClick={onClick}>
         {title}
-      </button>
+      </Button>
     );
   }
 }
 
-export default Button;
+export default AppButton;

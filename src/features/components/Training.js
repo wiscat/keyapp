@@ -3,6 +3,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import Card, { CardActions, CardContent } from 'material-ui/Card';
 import Info from './Info';
 import Button from '../ui/Button';
 import String from '../ui/String';
@@ -53,11 +54,15 @@ class Training extends React.PureComponent<TrainingProps> {
     const { string } = this.props;
 
     return (
-      <div className="training">
-        <Info />
-        <String string={string.slice(0, 10)} cls="training__string" />
-        <Button title="Закончить" onClick={this.onClickStop} />
-      </div>
+      <Card className="training">
+        <CardContent>
+          <Info />
+          <String string={string.slice(0, 40)} cls="training__string" />
+        </CardContent>
+        <CardActions>
+          <Button title="Закончить" onClick={this.onClickStop} />
+        </CardActions>
+      </Card>
     );
   }
 }

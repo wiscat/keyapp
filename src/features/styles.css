@@ -6,7 +6,26 @@
 .string__letter {
   display: table-cell;
   border: black solid 1px;
-  padding: 3px;
+  padding: 15px;
+  font-size: 30px;
+}
+
+@media (max-width: 500px) {
+  .string__letter:nth-child(1n + 6) {
+    display: none;
+  }
+}
+
+@media (max-width: 1500px) {
+  .string__letter:nth-child(1n + 15) {
+    display: none;
+  }
+}
+
+@media (min-width: 1501px) {
+  .string__letter:nth-child(1n + 20) {
+    display: none;
+  }
 }
 
 .string__letter:first-child {
@@ -15,19 +34,9 @@
 }
 
 .training {
-  border: black solid 1px;
-  padding: 20px;
+  margin-top: -50px;
 }
 
 .training__string {
   margin: 20px 0;
-}
-
-.results {
-  border: black solid 1px;
-  padding: 20px;
-}
-
-.results__button {
-  margin-top: 20px;
 }
