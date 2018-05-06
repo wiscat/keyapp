@@ -1,6 +1,6 @@
 /* @flow */
 
-export const randomStr = (length: number = 10) => {
+export const randomStr = (length: number = 10): string => {
   let string = '';
   const chars = 'абвгдеёжзийклмнопрстуфхцчшщьыъэюя0123456789';
   for (let i = 0; i < length; i += 1) {

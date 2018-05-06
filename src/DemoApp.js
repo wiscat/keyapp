@@ -7,7 +7,7 @@ class DemoApp extends Component {
     return (
       <div className="demo-app">
         <TrainingWidget
-          time={10}
+          time={60}
           length={20}
         />
       </div>

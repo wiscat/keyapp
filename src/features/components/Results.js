@@ -1,13 +1,16 @@
 /* @flow */
 
 import React from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Info from './Info';
 import Button from '../ui/Button';
 import { start } from '../redux/actions';
 
+import type { Dispatch } from '../types';
+
 type ResultsProps = {
-  onStart: Function,
+  onStart: () => void,
 };
 
 class Results extends React.PureComponent<ResultsProps> {
@@ -25,6 +28,8 @@ class Results extends React.PureComponent<ResultsProps> {
   }
 }
 
-export default connect(null, {
-  onStart: start,
-})(Results);
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  onStart: bindActionCreators(start, dispatch),
+});
+
+export default connect(null, mapDispatchToProps)(Results);

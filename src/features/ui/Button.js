@@ -5,7 +5,7 @@ import React from 'react';
 type ButtonProps = {
   cls?: string,
   title: string,
-  onClick: Function,
+  onClick: () => void,
 };
 
 class Button extends React.PureComponent<ButtonProps> {

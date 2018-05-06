@@ -3,8 +3,9 @@
 import { combineReducers } from 'redux';
 import { REPLACE_STATE, UPDATE_STRING, ON_MISTAKE, UPDATE_TIME, TRAINING_START, TRAINING_STOP } from './actions';
 import type { Action, Reducer, State } from '../types';
+import type { AppAction } from './types';
 
-function conf(state = {}, action: Action) {
+function conf(state = { length: 0, time: 0 }, action: Action) {
   switch (action.type) {
     default:
       return state;
@@ -24,7 +25,7 @@ function status(state = 0, action: Action) {
   }
 }
 
-function string(state = '', action: Action) {
+function string(state = '', action: AppAction) {
   switch (action.type) {
     case TRAINING_START: {
       return action.string;
@@ -73,7 +74,7 @@ const combineReducer = combineReducers({
   }),
 });
 
-const replaceState = (reducer: Reducer) => (state: State, action: Action) => {
+const replaceState = reducer => (state: State | void, action: AppAction) => {
   if (action.type === REPLACE_STATE && action.state) {
     return action.state;
   }

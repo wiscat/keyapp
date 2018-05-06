@@ -1,6 +1,7 @@
 /* @flow */
 
 import React from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Info from './Info';
 import Button from '../ui/Button';
@@ -8,12 +9,14 @@ import String from '../ui/String';
 import { stop, updateTime, updateString, mistake } from '../redux/actions';
 import { stringSelector } from '../redux/selectors';
 
+import type { Dispatch } from '../types';
+
 type TrainingProps = {
   string: string,
-  onMistake: Function,
-  onStop: Function,
-  onUpdateTime: Function,
-  onUpdateString: Function,
+  onMistake: () => void,
+  onStop: () => void,
+  onUpdateTime: () => void,
+  onUpdateString: (string) => void,
 };
 
 class Training extends React.PureComponent<TrainingProps> {
@@ -59,11 +62,22 @@ class Training extends React.PureComponent<TrainingProps> {
   }
 }
 
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  onMistake: bindActionCreators(mistake, dispatch),
+  onStop: bindActionCreators(stop, dispatch),
+  onUpdateTime: bindActionCreators(updateTime, dispatch),
+  onUpdateString: bindActionCreators(updateString, dispatch),
+});
+
 export default connect(state => ({
   string: stringSelector(state),
-}), {
-  onMistake: mistake,
-  onStop: stop,
-  onUpdateTime: updateTime,
-  onUpdateString: updateString,
-})(Training);
+}), mapDispatchToProps)(Training);
+
+// export default connect(state => ({
+//   string: stringSelector(state),
+// }), {
+//   onMistake: mistake,
+//   onStop: stop,
+//   onUpdateTime: updateTime,
+//   onUpdateString: updateString,
+// })(Training);
